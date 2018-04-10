@@ -11,14 +11,11 @@
     <parameterMap id="User" type="com.keyiu.java.domain.User"/>
 
     <sql id="Base_Column_List">
-        id, province_id, city_name, description
+        id, name, email, password
     </sql>
-
-    <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="findUsers" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List" />
-        from city
-        where city_name = #{cityName}
+        from user
     </select>
-
 </mapper>
