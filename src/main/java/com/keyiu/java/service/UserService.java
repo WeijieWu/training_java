@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserService {
     public List<User> findUsers();
+    public User createUser(User user);
 }

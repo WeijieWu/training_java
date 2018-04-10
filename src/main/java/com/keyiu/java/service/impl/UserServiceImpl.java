@@ -16,4 +16,11 @@ public class UserServiceImpl implements UserService {
     public List<User> findUsers() {
         return userDao.findUsers();
     }
+
+    @Override
+    public User createUser(User user) {
+        userDao.createUser(user);
+//        System.out.println(userDao.createUser(user));
+        return user;
+    }
 }

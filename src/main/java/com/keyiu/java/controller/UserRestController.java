@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -16,8 +17,16 @@ public class UserRestController {
     private UserService userService;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<User> findUsers() {
+    public List<User> findUsers(HttpServletResponse response) {
+        response.setStatus(500);
         return userService.findUsers();
     }
-
+    @RequestMapping(value = "user", method = RequestMethod.POST)
+    public User createUser(HttpServletResponse response) {
+        User user = new User();
+        user.setName("张三");
+        user.setEmail("zhang.shan@outlook.com");
+        user.setPassword("password");
+        return userService.createUser(user);
+    }
 }

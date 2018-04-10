@@ -18,4 +18,7 @@
         <include refid="Base_Column_List" />
         from user
     </select>
+    <insert id="createUser" parameterMap="User" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO `user`(`name`, `email`, `password`) VALUES (#{name}, #{email}, #{password})
+    </insert>
 </mapper>
