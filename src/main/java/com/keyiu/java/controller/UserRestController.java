@@ -4,6 +4,7 @@ import com.keyiu.java.domain.User;
 import com.keyiu.java.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +23,7 @@ public class UserRestController {
         return userService.findUsers();
     }
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public User createUser(HttpServletResponse response) {
-        User user = new User();
-        user.setName("张三");
-        user.setEmail("zhang.shan@outlook.com");
-        user.setPassword("password");
+    public User createUser(HttpServletResponse response, @RequestBody User user) {
         return userService.createUser(user);
     }
 }

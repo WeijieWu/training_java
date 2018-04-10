@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user) {
         userDao.createUser(user);
-//        System.out.println(userDao.createUser(user));
         return user;
     }
 }
