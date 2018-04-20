@@ -7,9 +7,11 @@
     <groupId>com.keyiu.training_java</groupId>
     <artifactId>spring</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--设置编码规则和java版本-->
     <properties>
-        <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-        <mysql-connector>5.1.39</mysql-connector>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
     </properties>
     <!-- Inherit defaults from Spring Boot -->
     <parent>
@@ -18,7 +20,7 @@
         <version>2.0.1.RELEASE</version>
     </parent>
 
-    <!-- Add typical dependencies for a web application -->
+    <!-- 添加依赖保 -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -30,22 +32,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
 
         <!-- SpringBoot - MyBatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.2.0</version>
+            <version>1.3.2</version>
         </dependency>
-        <!-- Mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- junit 测试-->
@@ -54,7 +51,7 @@
             <artifactId>junit</artifactId>
         </dependency>
 
-        <!-- flyway migration script -->
+        <!-- 用migrations脚本来执行resources/db/migration/V1__XXX.sql  -->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
@@ -62,7 +59,7 @@
         </dependency>
     </dependencies>
 
-    <!-- Package as an executable jar -->
+    <!-- 添加编译插件，编译完之后jar包运行 -->
     <build>
         <plugins>
             <plugin>
@@ -71,5 +68,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
